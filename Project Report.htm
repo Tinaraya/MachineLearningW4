@@ -24,15 +24,15 @@ w\:* {behavior:url(#default#VML);}
   <o:Template>Normal</o:Template>
   <o:LastAuthor>Hou Wenting</o:LastAuthor>
   <o:Revision>3</o:Revision>
-  <o:TotalTime>5</o:TotalTime>
-  <o:Created>2018-12-03T09:32:00Z</o:Created>
-  <o:LastSaved>2018-12-03T09:33:00Z</o:LastSaved>
+  <o:TotalTime>4</o:TotalTime>
+  <o:Created>2018-12-03T09:45:00Z</o:Created>
+  <o:LastSaved>2018-12-03T09:45:00Z</o:LastSaved>
   <o:Pages>1</o:Pages>
   <o:Words>675</o:Words>
-  <o:Characters>3852</o:Characters>
+  <o:Characters>3851</o:Characters>
   <o:Lines>32</o:Lines>
   <o:Paragraphs>9</o:Paragraphs>
-  <o:CharactersWithSpaces>4518</o:CharactersWithSpaces>
+  <o:CharactersWithSpaces>4517</o:CharactersWithSpaces>
   <o:Version>15.00</o:Version>
  </o:DocumentProperties>
 </xml><![endif]-->
@@ -42,8 +42,6 @@ href="Project%20Report_files/colorschememapping.xml">
 <!--[if gte mso 9]><xml>
  <w:WordDocument>
   <w:DisplayBackgroundShape/>
-  <w:SpellingState>Clean</w:SpellingState>
-  <w:GrammarState>Clean</w:GrammarState>
   <w:TrackMoves>false</w:TrackMoves>
   <w:TrackFormatting/>
   <w:PunctuationKerning/>
@@ -719,12 +717,6 @@ p.Body, li.Body, div.Body
 	mso-bidi-font-family:"Arial Unicode MS";
 	color:black;
 	border:none;}
-span.SpellE
-	{mso-style-name:"";
-	mso-spl-e:yes;}
-span.GramE
-	{mso-style-name:"";
-	mso-gram-e:yes;}
 .MsoChpDefault
 	{mso-style-type:export-only;
 	mso-default-props:yes;
@@ -791,8 +783,7 @@ Learning Week 4 Project Write-up<o:p></o:p></b></p>
 
 <p class=Body>The main goal of this project is to build a machine learning
 model that can predict exercise quality from data collected using personal
-devices such as Jawbone Up, Nike <span class=SpellE>FuelBand</span>, and
-Fitbit. </p>
+devices such as Jawbone Up, Nike FuelBand, and Fitbit. </p>
 
 <p class=Body><o:p>&nbsp;</o:p></p>
 
@@ -804,12 +795,11 @@ Fitbit. </p>
 and get a rough idea of the data. In the training dataset, data from
 accelerometers on the belt, forearm, arm, and dumbbell of 6 participants are
 given. The structure of the training data frame shows that it consists of 19622
-observations of 160 variables. The ¡°<span class=SpellE>classe</span>¡± variable
-in the training set represents <span class=GramE>the <span class=SpellE>qualify</span></span>
-of the exercise. Examining the structure of testing data frame, I found that it
-consists of 20 observations of 160 variables. But the ¡°<span class=SpellE>classe</span>¡±
-variable in the testing set is NULL. This confirms that the ¡°<span
-class=SpellE>classe</span>¡± variable is the prediction target.</p>
+observations of 160 variables. The ¡°classe¡± variable in the training set
+represents the qualify of the exercise. Examining the structure of testing data
+frame, I found that it consists of 20 observations of 160 variables. But the
+¡°classe¡± variable in the testing set is NULL. This confirms that the ¡°classe¡±
+variable is the prediction target.</p>
 
 <p class=Body><o:p>&nbsp;</o:p></p>
 
@@ -842,11 +832,9 @@ dataset was divided into two categories - 80% training and 20% testing.</p>
 <p class=Body>Two machine learning models (classification tress and random
 forest) were implemented and compared. Cross-validation technique was utilized
 to prevent overfitting. I used k-folds method, to be specific, 5 folds method
-for cross-validation. In the ¡°train¡± function, <span class=SpellE>trControl</span>
-argument was specified as <span class=SpellE>trControl</span> = <span
-class=SpellE><span class=GramE>trainControl</span></span><span class=GramE>(</span>method
-= ¡°cv¡±, number = 5). The algorithm that gives the lower out of sample error
-will be chosen.</p>
+for cross-validation. In the ¡°train¡± function, trControl argument was specified
+as trControl = trainControl(method = ¡°cv¡±, number = 5). The algorithm that gives
+the lower out of sample error will be chosen.</p>
 
 <p class=Body><o:p>&nbsp;</o:p></p>
 
@@ -854,32 +842,26 @@ will be chosen.</p>
 
 <p class=Body><o:p>&nbsp;</o:p></p>
 
-<p class=Body><span class=SpellE><i><span style='color:#004C7F'>model_ct</span></i></span><i><span
-style='color:#004C7F'> &lt;- <span class=GramE>train(</span><span class=SpellE>classe</span>
-~., method =&quot;<span class=SpellE>rpart</span>&quot;, data = <span
-class=SpellE>train_data</span>,<o:p></o:p></span></i></p>
+<p class=Body><i><span style='color:#004C7F'>model_ct &lt;- train(classe ~.,
+method =&quot;rpart&quot;, data = train_data,<o:p></o:p></span></i></p>
 
 <p class=Body><i><span style='color:#004C7F'><span
 style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span><span class=SpellE><span class=GramE>trControl</span></span> = <span
-class=SpellE>trainControl</span>(method=&quot;<span class=SpellE>cv&quot;,number</span>=<span
-class=SpellE>n_folds</span>))<o:p></o:p></span></i></p>
+</span>trControl = trainControl(method=&quot;cv&quot;,number=n_folds))<o:p></o:p></span></i></p>
 
-<p class=Body><span class=SpellE><i><span style='color:#004C7F'>pd_ct</span></i></span><i><span
-style='color:#004C7F'> &lt;- <span class=GramE>predict(</span><span
-class=SpellE>model_ct,test_data</span>)<o:p></o:p></span></i></p>
+<p class=Body><i><span style='color:#004C7F'>pd_ct &lt;-
+predict(model_ct,test_data)<o:p></o:p></span></i></p>
 
 <p class=Body><o:p>&nbsp;</o:p></p>
 
 <p class=Body>The final value used for the model was complexity parameter =
 0.03676012, which gives the highest accuracy value of 0.5248 in the training
 data. Detailed classification tree can be found in Figure 1. When comparing the
-results of the predicted ¡°<span class=SpellE>classe</span>¡± with ¡°<span
-class=SpellE>classe</span>¡± information in testing data, the out of sample
-accuracy rate is approximately 0.4986. The accuracy rate in the training set is
-slightly higher than the out of sample accuracy rate, which makes sense.
-However, I would say this is not a desirable accuracy rate overall so this
-classification tree method is not ideal.</p>
+results of the predicted ¡°classe¡± with ¡°classe¡± information in testing data,
+the out of sample accuracy rate is approximately 0.4986. The accuracy rate in
+the training set is slightly higher than the out of sample accuracy rate, which
+makes sense. However, I would say this is not a desirable accuracy rate overall
+so this classification tree method is not ideal.</p>
 
 <p class=Body align=center style='text-align:center'><span style='mso-no-proof:
 yes'><!--[if gte vml 1]><v:shapetype id="_x0000_t75" coordsize="21600,21600"
@@ -920,26 +902,19 @@ Tree Model Prediction</p>
 
 <p class=Body><o:p>&nbsp;</o:p></p>
 
-<p class=Body><span class=SpellE><i><span style='color:#004C7F'>model_rf</span></i></span><i><span
-style='color:#004C7F'> &lt;- <span class=GramE>train(</span><span class=SpellE>classe</span>
-~., method =&quot;<span class=SpellE>rf</span>&quot;, data = <span
-class=SpellE>train_data,verbose</span>=FALSE,<o:p></o:p></span></i></p>
+<p class=Body><i><span style='color:#004C7F'>model_rf &lt;- train(classe ~.,
+method =&quot;rf&quot;, data = train_data,verbose=FALSE,<o:p></o:p></span></i></p>
 
 <p class=Body><i><span style='color:#004C7F'><span
 style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span><span class=SpellE><span class=GramE>trControl</span></span> = <span
-class=SpellE>trainControl</span>(method=&quot;<span class=SpellE>cv&quot;,number</span>=<span
-class=SpellE>n_folds</span>))<o:p></o:p></span></i></p>
+</span>trControl = trainControl(method=&quot;cv&quot;,number=n_folds))<o:p></o:p></span></i></p>
 
-<p class=Body><span class=SpellE><i><span style='color:#004C7F'>pd_rf</span></i></span><i><span
-style='color:#004C7F'> &lt;- <span class=GramE>predict(</span><span
-class=SpellE>model_rf,test_data</span>)<o:p></o:p></span></i></p>
-
-<p class=Body><o:p>&nbsp;</o:p></p>
+<p class=Body><i><span style='color:#004C7F'>pd_rf &lt;-
+predict(model_rf,test_data)<o:p></o:p></span></i></p>
 
 <p class=Body><!--[if gte vml 1]><o:wrapblock><v:shape id="officeArt_x0020_object"
   o:spid="_x0000_s1026" type="#_x0000_t75" style='position:absolute;
-  margin-left:555.05pt;margin-top:-189.55pt;width:252pt;height:191.3pt;
+  margin-left:550.55pt;margin-top:-181.1pt;width:252pt;height:191.3pt;
   z-index:251660288;visibility:visible;mso-wrap-style:square;
   mso-width-percent:0;mso-height-percent:0;mso-wrap-distance-left:12pt;
   mso-wrap-distance-top:12pt;mso-wrap-distance-right:12pt;
@@ -953,7 +928,7 @@ class=SpellE>model_rf,test_data</span>)<o:p></o:p></span></i></p>
  </v:shape><![endif]--><![if !vml]><span style='mso-ignore:vglayout'>
  <table cellpadding=0 cellspacing=0 align=left>
   <tr>
-   <td width=740 height=0></td>
+   <td width=734 height=0></td>
   </tr>
   <tr>
    <td></td>
